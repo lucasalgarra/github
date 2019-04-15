@@ -100,10 +100,12 @@ extension RepositoryListViewController {
     
     @objc private func update() {
         
-        self.refreshControl.beginRefreshing()
-        if self.tableView.contentOffset.y < 0 {
-            let contentOffset = CGPoint(x: 0, y: -(self.refreshControl.frame.height + tableViewInset))
-            self.tableView.setContentOffset(contentOffset, animated: true)
+        if !refreshControl.isRefreshing {
+            refreshControl.beginRefreshing()
+            if tableView.contentOffset.y < 0 {
+                let contentOffset = CGPoint(x: 0, y: -(refreshControl.frame.height + tableViewInset))
+                tableView.setContentOffset(contentOffset, animated: true)
+            }
         }
         
         viewModel.update(completion: {
@@ -118,9 +120,10 @@ extension RepositoryListViewController {
             let okAction = UIAlertAction(title: "AlertOkButton".localizable, style: .default, handler: nil)
             alertController.addAction(okAction)
             
-            self.present(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: {
+                self.didUpdate()
+            })
             
-            self.didUpdate()
         })
         
     }

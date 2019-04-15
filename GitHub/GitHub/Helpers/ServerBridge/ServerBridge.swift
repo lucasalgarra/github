@@ -54,18 +54,25 @@ extension ServerBridge {
             case .success(let data):
                 guard let json = data as? _JSON,
                     let repositories = json["items"] as? [_JSON] else {
-                        failure(ServerBridgeErrorMessage.parseErrorMessage())
+                        DispatchQueue.main.async {
+                            let errorMessage = ServerBridgeErrorMessage.parseErrorMessage()
+                            failure(errorMessage)
+                        }
                         return
                 }
                 
-                completion(repositories)
+                DispatchQueue.main.async {
+                    completion(repositories)
+                }
             case .failure(let error):
                 print(error)
                 let errorMessage = ServerBridgeErrorMessage(
                     code: response.response?.statusCode,
                     title: nil,
                     message: error.localizedDescription)
-                failure(errorMessage)
+                DispatchQueue.main.async {
+                    failure(errorMessage)
+                }
             }
         }
     }

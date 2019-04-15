@@ -161,12 +161,14 @@ extension RepositoryCell {
     
     private func loadAuthorPhotoImageView() {
         authorPhotoImageView.image = userIconImage
+        authorPhotoImageView.backgroundColor = .defaultBackgroundColor
         
         guard let imageURL = presenter?.authorPhotoURL else { return }
         
         UIImage.download(imageWithURL: imageURL) { (image, url) in
             if imageURL == url {
                 self.authorPhotoImageView.image = image
+                self.authorPhotoImageView.backgroundColor = .clear
             }
         }
     }
