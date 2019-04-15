@@ -1,21 +1,76 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13142" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12042"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="RepositoryCell" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="236" id="KGk-i7-Jjw" customClass="RepositoryCell" customModule="GitHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="236"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="235.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBo-6c-cXi">
+                        <rect key="frame" x="20" y="10" width="280" height="215.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repository name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NS7-gR-QfD">
+                                <rect key="frame" x="16" y="16" width="248" height="131.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yd-Rs-O4l">
+                                <rect key="frame" x="68" y="172.5" width="196" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EMS-kg-vbo">
+                                <rect key="frame" x="16" y="163.5" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="IT8-u8-Amz"/>
+                                    <constraint firstAttribute="width" constant="36" id="ioj-AF-ZBX"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Yd-Rs-O4l" firstAttribute="centerY" secondItem="EMS-kg-vbo" secondAttribute="centerY" id="EaA-1M-vx7"/>
+                            <constraint firstAttribute="trailing" secondItem="NS7-gR-QfD" secondAttribute="trailing" constant="16" id="GJX-cq-B6r"/>
+                            <constraint firstAttribute="bottom" secondItem="EMS-kg-vbo" secondAttribute="bottom" constant="16" id="ZFw-hp-Lbq"/>
+                            <constraint firstItem="EMS-kg-vbo" firstAttribute="leading" secondItem="MBo-6c-cXi" secondAttribute="leading" constant="16" id="bE2-uz-Sjf"/>
+                            <constraint firstAttribute="trailing" secondItem="5Yd-Rs-O4l" secondAttribute="trailing" constant="16" id="dAg-tl-aoK"/>
+                            <constraint firstItem="5Yd-Rs-O4l" firstAttribute="leading" secondItem="EMS-kg-vbo" secondAttribute="trailing" constant="16" id="hEg-rh-MJK"/>
+                            <constraint firstItem="NS7-gR-QfD" firstAttribute="top" secondItem="MBo-6c-cXi" secondAttribute="top" constant="16" id="jvD-wY-n4O"/>
+                            <constraint firstItem="NS7-gR-QfD" firstAttribute="leading" secondItem="MBo-6c-cXi" secondAttribute="leading" constant="16" id="qVf-fs-m3q"/>
+                            <constraint firstItem="EMS-kg-vbo" firstAttribute="top" secondItem="NS7-gR-QfD" secondAttribute="bottom" constant="16" id="v6M-Wh-C6e"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="MBo-6c-cXi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="L94-fu-gh1"/>
+                    <constraint firstAttribute="bottom" secondItem="MBo-6c-cXi" secondAttribute="bottom" constant="10" id="SEZ-so-JdS"/>
+                    <constraint firstItem="MBo-6c-cXi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="SUm-vB-1u9"/>
+                    <constraint firstAttribute="trailing" secondItem="MBo-6c-cXi" secondAttribute="trailing" constant="20" id="frM-9I-33M"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="authorNameLabel" destination="5Yd-Rs-O4l" id="TAP-V8-JpN"/>
+                <outlet property="authorPhotoImageView" destination="EMS-kg-vbo" id="55I-YV-jI1"/>
+                <outlet property="cardView" destination="MBo-6c-cXi" id="WCd-AI-hMP"/>
+                <outlet property="repositoryNameLabel" destination="NS7-gR-QfD" id="gz8-kL-bud"/>
+            </connections>
+            <point key="canvasLocation" x="7.2463768115942031" y="106.47321428571428"/>
         </tableViewCell>
     </objects>
 </document>

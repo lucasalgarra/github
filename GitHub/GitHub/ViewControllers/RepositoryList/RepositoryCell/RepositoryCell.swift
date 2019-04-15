@@ -16,6 +16,15 @@ protocol RepositoryCellPresentable {
 }
 
 class RepositoryCell: UITableViewCell {
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - Outlets
+    //-----------------------------------------------------------------------------
+    
+    @IBOutlet private weak var cardView: UIView!
+    @IBOutlet private weak var repositoryNameLabel: UILabel!
+    @IBOutlet private weak var authorNameLabel: UILabel!
+    @IBOutlet private weak var authorPhotoImageView: UIImageView!
 
     //-----------------------------------------------------------------------------
     // MARK: - Public properties
@@ -50,9 +59,18 @@ class RepositoryCell: UITableViewCell {
 extension RepositoryCell {
     
     private func setup() {
-        
+        setupView()
+        setupCardView()
     }
     
+    private func setupView() {
+        backgroundColor = .clear
+    }
+    
+    private func setupCardView() {
+        cardView.layer.cornerRadius = 8
+        cardView.layer.masksToBounds = true
+    }
 }
 
 //-----------------------------------------------------------------------------
@@ -62,7 +80,7 @@ extension RepositoryCell {
 extension RepositoryCell {
     
     private func load() {
-        self.textLabel?.text = presenter?.repositoryName
+        self.repositoryNameLabel.text = presenter?.repositoryName
     }
     
 }

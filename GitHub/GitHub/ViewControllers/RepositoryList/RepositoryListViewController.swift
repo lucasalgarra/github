@@ -24,6 +24,7 @@ class RepositoryListViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     private let cellIdentifier = String(describing: RepositoryCell.self)
+    private var rowHeights = [Int: CGFloat]()
 }
 
 //-----------------------------------------------------------------------------
@@ -47,7 +48,13 @@ extension RepositoryListViewController {
 extension RepositoryListViewController {
     
     private func setup() {
+        
+        setupView()
         setupTableView()
+    }
+    
+    private func setupView() {
+        view.backgroundColor = .defaultBackgroundColor
     }
     
     private func setupTableView() {
@@ -85,9 +92,14 @@ extension RepositoryListViewController {
 extension RepositoryListViewController {
     
     @objc private func update() {
-        
+        didUpdate()
     }
     
+    private func didUpdate() {
+        DispatchQueue.main.async {
+            self.refreshControl.endRefreshing()
+        }
+    }
 }
 
 //-----------------------------------------------------------------------------
@@ -98,6 +110,10 @@ extension RepositoryListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.repositories.count
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return rowHeights[indexPath.row] ?? 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -115,6 +131,16 @@ extension RepositoryListViewController: UITableViewDataSource {
 //-----------------------------------------------------------------------------
 
 extension RepositoryListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.superview?.bringSubviewToFront(cell)
+        
+        rowHeights[indexPath.row] = cell.frame.height
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        rowHeights[indexPath.row] = cell.frame.height
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
