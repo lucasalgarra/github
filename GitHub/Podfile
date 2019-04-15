@@ -6,6 +6,8 @@ use_frameworks!
 target 'GitHub' do
 
   # Pods for GitHub
+  
+  pod 'Alamofire', '~> 4.0'
 
   target 'GitHubTests' do
     inherit! :search_paths

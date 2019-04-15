@@ -19,6 +19,11 @@
 		344A5E202264E614003B19E7 /* RepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344A5E1E2264E614003B19E7 /* RepositoryCell.xib */; };
 		344A5E222264E6B2003B19E7 /* RepositoryCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A5E212264E6B2003B19E7 /* RepositoryCellPresenter.swift */; };
 		344A5E262264F037003B19E7 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A5E252264F037003B19E7 /* UIColor+Extensions.swift */; };
+		344A5E2B2264F53B003B19E7 /* ServerBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A5E2A2264F53B003B19E7 /* ServerBridge.swift */; };
+		344A5E2D2264F61E003B19E7 /* ServerBridgeErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A5E2C2264F61E003B19E7 /* ServerBridgeErrorMessage.swift */; };
+		344A5E3522650859003B19E7 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A5E3422650859003B19E7 /* String+Extensions.swift */; };
+		344A5E3622650A38003B19E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 344A5E3822650A38003B19E7 /* Localizable.strings */; };
+		344A5E3B226515B5003B19E7 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A5E3A226515B5003B19E7 /* UIImage+Extensions.swift */; };
 		6C2FE9A5875B807D2D4DDC5A /* Pods_GitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9681F50DF5C94CF57DC38C /* Pods_GitHub.framework */; };
 		B6EF11B3394C51C7865E33EB /* Pods_GitHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA08FFC7BAF3E389C671688 /* Pods_GitHubUITests.framework */; };
 		DB2667E3333BE127E85CC339 /* Pods_GitHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBAED1617C9126A23EC9FD3 /* Pods_GitHubTests.framework */; };
@@ -62,6 +67,12 @@
 		344A5E1E2264E614003B19E7 /* RepositoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryCell.xib; sourceTree = "<group>"; };
 		344A5E212264E6B2003B19E7 /* RepositoryCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCellPresenter.swift; sourceTree = "<group>"; };
 		344A5E252264F037003B19E7 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		344A5E2A2264F53B003B19E7 /* ServerBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerBridge.swift; sourceTree = "<group>"; };
+		344A5E2C2264F61E003B19E7 /* ServerBridgeErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerBridgeErrorMessage.swift; sourceTree = "<group>"; };
+		344A5E322265082B003B19E7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		344A5E3422650859003B19E7 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		344A5E3722650A38003B19E7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		344A5E3A226515B5003B19E7 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		3640A53EEDD85E15F1FD6478 /* Pods-GitHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub/Pods-GitHub.release.xcconfig"; sourceTree = "<group>"; };
 		420F7F43FFA5DB35A9FA9D34 /* Pods-GitHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubUITests/Pods-GitHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F9681F50DF5C94CF57DC38C /* Pods_GitHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				344A5E132264D365003B19E7 /* AppDelegate */,
-				344A5E232264EFB1003B19E7 /* Extensions */,
+				344A5E282264F517003B19E7 /* Helpers */,
 				344A5E122264D352003B19E7 /* ViewControllers */,
 				344A5E192264E185003B19E7 /* Support Files */,
 			);
@@ -182,6 +193,7 @@
 			children = (
 				344A5DEE2264D0A6003B19E7 /* Info.plist */,
 				344A5DEB2264D0A6003B19E7 /* LaunchScreen.storyboard */,
+				344A5E2F226507C8003B19E7 /* LocalizableStrings */,
 				344A5DE92264D0A6003B19E7 /* Assets.xcassets */,
 			);
 			name = "Support Files";
@@ -200,6 +212,8 @@
 		344A5E232264EFB1003B19E7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				344A5E39226515A4003B19E7 /* UIImage */,
+				344A5E332265083F003B19E7 /* String */,
 				344A5E242264EFBF003B19E7 /* UIColor */,
 			);
 			path = Extensions;
@@ -211,6 +225,56 @@
 				344A5E252264F037003B19E7 /* UIColor+Extensions.swift */,
 			);
 			path = UIColor;
+			sourceTree = "<group>";
+		};
+		344A5E282264F517003B19E7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				344A5E292264F524003B19E7 /* ServerBridge */,
+				344A5E232264EFB1003B19E7 /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		344A5E292264F524003B19E7 /* ServerBridge */ = {
+			isa = PBXGroup;
+			children = (
+				344A5E2A2264F53B003B19E7 /* ServerBridge.swift */,
+				344A5E2E2264F9C2003B19E7 /* ErrorMessage */,
+			);
+			path = ServerBridge;
+			sourceTree = "<group>";
+		};
+		344A5E2E2264F9C2003B19E7 /* ErrorMessage */ = {
+			isa = PBXGroup;
+			children = (
+				344A5E2C2264F61E003B19E7 /* ServerBridgeErrorMessage.swift */,
+			);
+			path = ErrorMessage;
+			sourceTree = "<group>";
+		};
+		344A5E2F226507C8003B19E7 /* LocalizableStrings */ = {
+			isa = PBXGroup;
+			children = (
+				344A5E3822650A38003B19E7 /* Localizable.strings */,
+			);
+			name = LocalizableStrings;
+			sourceTree = "<group>";
+		};
+		344A5E332265083F003B19E7 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				344A5E3422650859003B19E7 /* String+Extensions.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
+		344A5E39226515A4003B19E7 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				344A5E3A226515B5003B19E7 /* UIImage+Extensions.swift */,
+			);
+			path = UIImage;
 			sourceTree = "<group>";
 		};
 		5388BD482222B6BDD4594902 /* Pods */ = {
@@ -247,6 +311,7 @@
 				344A5DDB2264D0A2003B19E7 /* Sources */,
 				344A5DDC2264D0A2003B19E7 /* Frameworks */,
 				344A5DDD2264D0A2003B19E7 /* Resources */,
+				C65B0A87DA26BBE4C6C2382B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,8 +388,8 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 344A5DD62264D0A2003B19E7;
 			productRefGroup = 344A5DE02264D0A2003B19E7 /* Products */;
@@ -343,6 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344A5E3622650A38003B19E7 /* Localizable.strings in Resources */,
 				344A5E182264E16F003B19E7 /* RepositoryListViewController.xib in Resources */,
 				344A5DED2264D0A6003B19E7 /* LaunchScreen.storyboard in Resources */,
 				344A5DEA2264D0A6003B19E7 /* Assets.xcassets in Resources */,
@@ -433,6 +499,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C65B0A87DA26BBE4C6C2382B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GitHub/Pods-GitHub-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GitHub/Pods-GitHub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -444,6 +532,10 @@
 				344A5E262264F037003B19E7 /* UIColor+Extensions.swift in Sources */,
 				344A5E222264E6B2003B19E7 /* RepositoryCellPresenter.swift in Sources */,
 				344A5DE32264D0A2003B19E7 /* AppDelegate.swift in Sources */,
+				344A5E3522650859003B19E7 /* String+Extensions.swift in Sources */,
+				344A5E2D2264F61E003B19E7 /* ServerBridgeErrorMessage.swift in Sources */,
+				344A5E2B2264F53B003B19E7 /* ServerBridge.swift in Sources */,
+				344A5E3B226515B5003B19E7 /* UIImage+Extensions.swift in Sources */,
 				344A5E172264E16F003B19E7 /* RepositoryListViewController.swift in Sources */,
 				344A5E1F2264E614003B19E7 /* RepositoryCell.swift in Sources */,
 			);
@@ -485,8 +577,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				344A5DEC2264D0A6003B19E7 /* Base */,
+				344A5E322265082B003B19E7 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		344A5E3822650A38003B19E7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				344A5E3722650A38003B19E7 /* pt-BR */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -496,6 +597,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -557,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -621,7 +724,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.joaolucasalgarra.GitHub;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.joaolucasalgarra.github;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -641,7 +744,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.com.joaolucasalgarra.GitHub;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.joaolucasalgarra.github;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

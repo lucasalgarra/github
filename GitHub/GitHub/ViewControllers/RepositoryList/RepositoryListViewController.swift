@@ -25,6 +25,7 @@ class RepositoryListViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private let cellIdentifier = String(describing: RepositoryCell.self)
     private var rowHeights = [Int: CGFloat]()
+    private let tableViewInset: CGFloat = 10
 }
 
 //-----------------------------------------------------------------------------
@@ -37,6 +38,7 @@ extension RepositoryListViewController {
         super.viewDidLoad()
         
         setup()
+        update()
     }
     
 }
@@ -50,6 +52,7 @@ extension RepositoryListViewController {
     private func setup() {
         
         setupView()
+        setupNavigationBar()
         setupTableView()
     }
     
@@ -57,11 +60,15 @@ extension RepositoryListViewController {
         view.backgroundColor = .defaultBackgroundColor
     }
     
+    private func setupNavigationBar() {
+        title = "RepositoryListTitle".localizable
+    }
+    
     private func setupTableView() {
         let nib = UINib(nibName: cellIdentifier, bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
         
-        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: tableViewInset, left: 0, bottom: tableViewInset, right: 0)
         
         refreshControl.addTarget(self, action: #selector(update), for: .valueChanged)
         
@@ -92,13 +99,38 @@ extension RepositoryListViewController {
 extension RepositoryListViewController {
     
     @objc private func update() {
-        didUpdate()
+        
+        self.refreshControl.beginRefreshing()
+        if self.tableView.contentOffset.y < 0 {
+            let contentOffset = CGPoint(x: 0, y: -(self.refreshControl.frame.height + tableViewInset))
+            self.tableView.setContentOffset(contentOffset, animated: true)
+        }
+        
+        viewModel.update(completion: {
+            self.didUpdate()
+        }, failure: { errorMessage in
+            
+            let alertController = UIAlertController(
+                title: errorMessage.title,
+                message: errorMessage.message,
+                preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "AlertOkButton".localizable, style: .default, handler: nil)
+            alertController.addAction(okAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+            
+            self.didUpdate()
+        })
+        
     }
     
     private func didUpdate() {
         DispatchQueue.main.async {
             self.refreshControl.endRefreshing()
         }
+        
+        tableView.reloadData()
     }
 }
 

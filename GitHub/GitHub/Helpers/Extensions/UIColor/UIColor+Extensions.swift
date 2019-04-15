@@ -11,11 +11,23 @@ import UIKit
 extension UIColor {
     
     //-----------------------------------------------------------------------------
-    // MARK: - Colors - Deafult
+    // MARK: - Background colors
     //-----------------------------------------------------------------------------
     
     public static var defaultBackgroundColor: UIColor {
         return UIColor.init(white: 0.95, alpha: 1)
+    }
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - Text colors
+    //-----------------------------------------------------------------------------
+    
+    public static var darkText: UIColor {
+        return UIColor.init(white: 0.2, alpha: 1)
+    }
+    
+    public static var normalText: UIColor {
+        return UIColor.init(white: 0.4, alpha: 1)
     }
     
 }

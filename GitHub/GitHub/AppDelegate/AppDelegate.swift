@@ -23,6 +23,8 @@ extension AppDelegate: UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        UIImage.clearCachedImages()
+        
         window = UIWindow()
         let navigationController = UINavigationController(rootViewController: RepositoryListViewController())
         navigationController.navigationBar.isTranslucent = false

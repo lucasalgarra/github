@@ -12,46 +12,63 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="236" id="KGk-i7-Jjw" customClass="RepositoryCell" customModule="GitHub" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="236"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="264" id="KGk-i7-Jjw" customClass="RepositoryCell" customModule="GitHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="264"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="235.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="263.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBo-6c-cXi">
-                        <rect key="frame" x="20" y="10" width="280" height="215.5"/>
+                        <rect key="frame" x="20" y="10" width="280" height="243.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repository name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NS7-gR-QfD">
-                                <rect key="frame" x="16" y="16" width="248" height="131.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repository name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NS7-gR-QfD">
+                                <rect key="frame" x="16" y="16" width="150.5" height="159.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yd-Rs-O4l">
-                                <rect key="frame" x="68" y="172.5" width="196" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <rect key="frame" x="60" y="201.5" width="204" height="16"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EMS-kg-vbo">
-                                <rect key="frame" x="16" y="163.5" width="36" height="36"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EMS-kg-vbo">
+                                <rect key="frame" x="16" y="191.5" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="IT8-u8-Amz"/>
                                     <constraint firstAttribute="width" constant="36" id="ioj-AF-ZBX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="star count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="661-xi-JeT">
+                                <rect key="frame" x="202.5" y="88" width="61.5" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="StarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8MD-Qd-7sF">
+                                <rect key="frame" x="182.5" y="90" width="12" height="12"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="12" id="EbS-Sj-E8T"/>
+                                    <constraint firstAttribute="width" constant="12" id="lXd-UJ-NqU"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5Yd-Rs-O4l" firstAttribute="centerY" secondItem="EMS-kg-vbo" secondAttribute="centerY" id="EaA-1M-vx7"/>
-                            <constraint firstAttribute="trailing" secondItem="NS7-gR-QfD" secondAttribute="trailing" constant="16" id="GJX-cq-B6r"/>
                             <constraint firstAttribute="bottom" secondItem="EMS-kg-vbo" secondAttribute="bottom" constant="16" id="ZFw-hp-Lbq"/>
+                            <constraint firstAttribute="trailing" secondItem="661-xi-JeT" secondAttribute="trailing" constant="16" id="Zhs-p6-wjk"/>
                             <constraint firstItem="EMS-kg-vbo" firstAttribute="leading" secondItem="MBo-6c-cXi" secondAttribute="leading" constant="16" id="bE2-uz-Sjf"/>
                             <constraint firstAttribute="trailing" secondItem="5Yd-Rs-O4l" secondAttribute="trailing" constant="16" id="dAg-tl-aoK"/>
-                            <constraint firstItem="5Yd-Rs-O4l" firstAttribute="leading" secondItem="EMS-kg-vbo" secondAttribute="trailing" constant="16" id="hEg-rh-MJK"/>
+                            <constraint firstItem="5Yd-Rs-O4l" firstAttribute="leading" secondItem="EMS-kg-vbo" secondAttribute="trailing" constant="8" id="hEg-rh-MJK"/>
                             <constraint firstItem="NS7-gR-QfD" firstAttribute="top" secondItem="MBo-6c-cXi" secondAttribute="top" constant="16" id="jvD-wY-n4O"/>
+                            <constraint firstItem="661-xi-JeT" firstAttribute="centerY" secondItem="8MD-Qd-7sF" secondAttribute="centerY" id="jzs-MB-zFw"/>
+                            <constraint firstItem="661-xi-JeT" firstAttribute="leading" secondItem="8MD-Qd-7sF" secondAttribute="trailing" constant="8" id="oya-7X-aiS"/>
                             <constraint firstItem="NS7-gR-QfD" firstAttribute="leading" secondItem="MBo-6c-cXi" secondAttribute="leading" constant="16" id="qVf-fs-m3q"/>
+                            <constraint firstItem="8MD-Qd-7sF" firstAttribute="leading" secondItem="NS7-gR-QfD" secondAttribute="trailing" constant="16" id="sMi-jN-noZ"/>
+                            <constraint firstItem="8MD-Qd-7sF" firstAttribute="centerY" secondItem="NS7-gR-QfD" secondAttribute="centerY" id="udA-Cz-VgR"/>
                             <constraint firstItem="EMS-kg-vbo" firstAttribute="top" secondItem="NS7-gR-QfD" secondAttribute="bottom" constant="16" id="v6M-Wh-C6e"/>
                         </constraints>
                     </view>
@@ -69,8 +86,13 @@
                 <outlet property="authorPhotoImageView" destination="EMS-kg-vbo" id="55I-YV-jI1"/>
                 <outlet property="cardView" destination="MBo-6c-cXi" id="WCd-AI-hMP"/>
                 <outlet property="repositoryNameLabel" destination="NS7-gR-QfD" id="gz8-kL-bud"/>
+                <outlet property="starCountLabel" destination="661-xi-JeT" id="uTd-HH-9Qv"/>
+                <outlet property="starIconImageView" destination="8MD-Qd-7sF" id="uRZ-Na-NcM"/>
             </connections>
-            <point key="canvasLocation" x="7.2463768115942031" y="106.47321428571428"/>
+            <point key="canvasLocation" x="7.2463768115942031" y="115.84821428571428"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="StarIcon" width="12" height="11.5"/>
+    </resources>
 </document>

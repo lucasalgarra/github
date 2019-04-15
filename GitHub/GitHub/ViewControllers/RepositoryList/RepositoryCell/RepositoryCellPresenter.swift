@@ -11,7 +11,7 @@ import Foundation
 class RepositoryCellPresenter: RepositoryCellPresentable {
     
     var repositoryName: String
-    var stars: Float
+    var stars: UInt32
     var authorName: String
     var authorPhotoURL: URL
     
@@ -20,7 +20,7 @@ class RepositoryCellPresenter: RepositoryCellPresentable {
     //-----------------------------------------------------------------------------
     
     init(repositoryName: String,
-         stars: Float,
+         stars: UInt32,
          authorName: String,
          authorPhotoURL: URL) {
         
