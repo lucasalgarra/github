@@ -1,5 +1,5 @@
 //
-//  RepositoryListViewController.swift
+//  RepositoryCell.swift
 //  GitHub
 //
 //  Created by Lucas Algarra on 15/04/19.
@@ -8,32 +8,38 @@
 
 import UIKit
 
-class RepositoryListViewController: UIViewController {
-    
-    //-----------------------------------------------------------------------------
-    // MARK: - Outlets
-    //-----------------------------------------------------------------------------
-    
-    @IBOutlet private weak var tableView: UITableView!
-    
-    //-----------------------------------------------------------------------------
-    // MARK: - Private properties
-    //-----------------------------------------------------------------------------
-    
-    let viewModel = RepositoryListViewModel()
+protocol RepositoryCellPresentable {
+    var name: String { get }
+    var stars: Float { get }
+    var authorName: String { get }
+    var authorPhotoURL: URL { get }
 }
 
-//-----------------------------------------------------------------------------
-// MARK: - View lifecycle
-//-----------------------------------------------------------------------------
+class RepositoryCell: UITableViewCell {
 
-extension RepositoryListViewController {
+    //-----------------------------------------------------------------------------
+    // MARK: - Public properties
+    //-----------------------------------------------------------------------------
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var presenter: RepositoryCellPresenter? {
+        didSet {
+            load()
+        }
+    }
+    
+    //-----------------------------------------------------------------------------
+    // MARK: - Override
+    //-----------------------------------------------------------------------------
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         setup()
     }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {}
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {}
     
 }
 
@@ -41,36 +47,21 @@ extension RepositoryListViewController {
 // MARK: - Private methods - Setup
 //-----------------------------------------------------------------------------
 
-extension RepositoryListViewController {
+extension RepositoryCell {
     
     private func setup() {
-        setupTableView()
-    }
-    
-    private func setupTableView() {
         
     }
+    
 }
 
 //-----------------------------------------------------------------------------
 // MARK: - Private methods - Load
 //-----------------------------------------------------------------------------
 
-extension RepositoryListViewController {
+extension RepositoryCell {
     
     private func load() {
-        
-    }
-    
-}
-
-//-----------------------------------------------------------------------------
-// MARK: - Private methods - Update
-//-----------------------------------------------------------------------------
-
-extension RepositoryListViewController {
-    
-    @objc private func update() {
         
     }
     
