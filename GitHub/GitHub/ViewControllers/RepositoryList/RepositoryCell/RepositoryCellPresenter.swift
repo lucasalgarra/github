@@ -10,7 +10,7 @@ import Foundation
 
 class RepositoryCellPresenter: RepositoryCellPresentable {
     
-    var name: String
+    var repositoryName: String
     var stars: Float
     var authorName: String
     var authorPhotoURL: URL
@@ -19,12 +19,12 @@ class RepositoryCellPresenter: RepositoryCellPresentable {
     // MARK: - Initialization
     //-----------------------------------------------------------------------------
     
-    init(name: String,
+    init(repositoryName: String,
          stars: Float,
          authorName: String,
          authorPhotoURL: URL) {
         
-        self.name = name
+        self.repositoryName = repositoryName
         self.stars = stars
         self.authorName = authorName
         self.authorPhotoURL = authorPhotoURL

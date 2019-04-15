@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RepositoryCellPresentable {
-    var name: String { get }
+    var repositoryName: String { get }
     var stars: Float { get }
     var authorName: String { get }
     var authorPhotoURL: URL { get }
@@ -62,7 +62,7 @@ extension RepositoryCell {
 extension RepositoryCell {
     
     private func load() {
-        
+        self.textLabel?.text = presenter?.repositoryName
     }
     
 }

@@ -20,7 +20,10 @@ class RepositoryListViewController: UIViewController {
     // MARK: - Private properties
     //-----------------------------------------------------------------------------
     
-    let viewModel = RepositoryListViewModel()
+    private let viewModel = RepositoryListViewModel()
+    
+    private let refreshControl = UIRefreshControl()
+    private let cellIdentifier = String(describing: RepositoryCell.self)
 }
 
 //-----------------------------------------------------------------------------
@@ -48,7 +51,18 @@ extension RepositoryListViewController {
     }
     
     private func setupTableView() {
+        let nib = UINib(nibName: cellIdentifier, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: cellIdentifier)
         
+        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        
+        refreshControl.addTarget(self, action: #selector(update), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.backgroundView = refreshControl
+        }
     }
 }
 
@@ -71,6 +85,38 @@ extension RepositoryListViewController {
 extension RepositoryListViewController {
     
     @objc private func update() {
+        
+    }
+    
+}
+
+//-----------------------------------------------------------------------------
+// MARK: - TableViewDataSource
+//-----------------------------------------------------------------------------
+
+extension RepositoryListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.repositories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! RepositoryCell
+        
+        cell.presenter = viewModel.repositories[indexPath.row]
+        
+        return cell
+    }
+}
+
+//-----------------------------------------------------------------------------
+// MARK: - TableViewDelegate
+//-----------------------------------------------------------------------------
+
+extension RepositoryListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     
