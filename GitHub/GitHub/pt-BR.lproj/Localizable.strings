@@ -10,7 +10,7 @@
 // MARK: - Repository List
 //-----------------------------------------------------------------------------
 
-"RepositoryListTitle" = "Repositórios";
+"RepositoryListTitle" = "Repositórios swift";
 
 //-----------------------------------------------------------------------------
 // MARK: - ServerBridgeErrorMessage

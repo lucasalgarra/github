@@ -24,6 +24,9 @@
 		344A5E3522650859003B19E7 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A5E3422650859003B19E7 /* String+Extensions.swift */; };
 		344A5E3622650A38003B19E7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 344A5E3822650A38003B19E7 /* Localizable.strings */; };
 		344A5E3B226515B5003B19E7 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A5E3A226515B5003B19E7 /* UIImage+Extensions.swift */; };
+		344A5E3F22666018003B19E7 /* LoadMoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A5E3E22666018003B19E7 /* LoadMoreView.swift */; };
+		344A5E4222666044003B19E7 /* XIBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A5E4122666044003B19E7 /* XIBView.swift */; };
+		344A5E4422666091003B19E7 /* LoadMoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344A5E4322666091003B19E7 /* LoadMoreView.xib */; };
 		6C2FE9A5875B807D2D4DDC5A /* Pods_GitHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F9681F50DF5C94CF57DC38C /* Pods_GitHub.framework */; };
 		B6EF11B3394C51C7865E33EB /* Pods_GitHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCA08FFC7BAF3E389C671688 /* Pods_GitHubUITests.framework */; };
 		DB2667E3333BE127E85CC339 /* Pods_GitHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FBAED1617C9126A23EC9FD3 /* Pods_GitHubTests.framework */; };
@@ -73,6 +76,9 @@
 		344A5E3422650859003B19E7 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		344A5E3722650A38003B19E7 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		344A5E3A226515B5003B19E7 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		344A5E3E22666018003B19E7 /* LoadMoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadMoreView.swift; sourceTree = "<group>"; };
+		344A5E4122666044003B19E7 /* XIBView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XIBView.swift; sourceTree = "<group>"; };
+		344A5E4322666091003B19E7 /* LoadMoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadMoreView.xib; sourceTree = "<group>"; };
 		3640A53EEDD85E15F1FD6478 /* Pods-GitHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHub.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHub/Pods-GitHub.release.xcconfig"; sourceTree = "<group>"; };
 		420F7F43FFA5DB35A9FA9D34 /* Pods-GitHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubUITests/Pods-GitHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4F9681F50DF5C94CF57DC38C /* Pods_GitHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +236,7 @@
 		344A5E282264F517003B19E7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				344A5E3C22665FF4003B19E7 /* SupportViews */,
 				344A5E292264F524003B19E7 /* ServerBridge */,
 				344A5E232264EFB1003B19E7 /* Extensions */,
 			);
@@ -275,6 +282,32 @@
 				344A5E3A226515B5003B19E7 /* UIImage+Extensions.swift */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		344A5E3C22665FF4003B19E7 /* SupportViews */ = {
+			isa = PBXGroup;
+			children = (
+				344A5E4022666036003B19E7 /* XIBView */,
+				344A5E3D22666002003B19E7 /* LoadMoreView */,
+			);
+			path = SupportViews;
+			sourceTree = "<group>";
+		};
+		344A5E3D22666002003B19E7 /* LoadMoreView */ = {
+			isa = PBXGroup;
+			children = (
+				344A5E3E22666018003B19E7 /* LoadMoreView.swift */,
+				344A5E4322666091003B19E7 /* LoadMoreView.xib */,
+			);
+			path = LoadMoreView;
+			sourceTree = "<group>";
+		};
+		344A5E4022666036003B19E7 /* XIBView */ = {
+			isa = PBXGroup;
+			children = (
+				344A5E4122666044003B19E7 /* XIBView.swift */,
+			);
+			path = XIBView;
 			sourceTree = "<group>";
 		};
 		5388BD482222B6BDD4594902 /* Pods */ = {
@@ -388,6 +421,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 				"pt-BR",
 			);
@@ -409,6 +443,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				344A5E3622650A38003B19E7 /* Localizable.strings in Resources */,
+				344A5E4422666091003B19E7 /* LoadMoreView.xib in Resources */,
 				344A5E182264E16F003B19E7 /* RepositoryListViewController.xib in Resources */,
 				344A5DED2264D0A6003B19E7 /* LaunchScreen.storyboard in Resources */,
 				344A5DEA2264D0A6003B19E7 /* Assets.xcassets in Resources */,
@@ -509,12 +544,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GitHub/Pods-GitHub-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -530,8 +567,10 @@
 			files = (
 				344A5E1B2264E561003B19E7 /* RepositoryListViewModel.swift in Sources */,
 				344A5E262264F037003B19E7 /* UIColor+Extensions.swift in Sources */,
+				344A5E4222666044003B19E7 /* XIBView.swift in Sources */,
 				344A5E222264E6B2003B19E7 /* RepositoryCellPresenter.swift in Sources */,
 				344A5DE32264D0A2003B19E7 /* AppDelegate.swift in Sources */,
+				344A5E3F22666018003B19E7 /* LoadMoreView.swift in Sources */,
 				344A5E3522650859003B19E7 /* String+Extensions.swift in Sources */,
 				344A5E2D2264F61E003B19E7 /* ServerBridgeErrorMessage.swift in Sources */,
 				344A5E2B2264F53B003B19E7 /* ServerBridge.swift in Sources */,

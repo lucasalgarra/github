@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RepositoryListViewController" customModule="GitHub" customModuleProvider="target">
             <connections>
+                <outlet property="loadMoreView" destination="jXI-r9-bzS" id="rcL-i4-zpE"/>
                 <outlet property="tableView" destination="O4A-r8-q3B" id="Bbq-xk-wpB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -38,6 +39,14 @@
                 <constraint firstItem="O4A-r8-q3B" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="opJ-6O-NK8"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+        <view contentMode="scaleToFill" id="jXI-r9-bzS" customClass="LoadMoreView" customModule="GitHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="415" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="9cZ-LX-0H4"/>
+            <point key="canvasLocation" x="712" y="398"/>
         </view>
     </objects>
 </document>

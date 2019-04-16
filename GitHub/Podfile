@@ -7,7 +7,8 @@ target 'GitHub' do
 
   # Pods for GitHub
   
-  pod 'Alamofire', '~> 4.0'
+  pod 'Alamofire'
+  pod 'SnapKit'
 
   target 'GitHubTests' do
     inherit! :search_paths

@@ -18,7 +18,6 @@ class ServerBridge {
     //-----------------------------------------------------------------------------
     
     private static let serverAddress = "https://api.github.com"
-    private static let repositoriesLimit: Int = 10
 }
 
 //-----------------------------------------------------------------------------
@@ -29,8 +28,9 @@ extension ServerBridge {
     
     static func repositories(
         withPage page: Int,
-        completion: @escaping ((_ repositories: [_JSON]) -> Void),
-        failure: @escaping ((_ errorMessage: ServerBridgeErrorMessage) -> Void)) {
+        limit: Int,
+        completion: @escaping ((_ repositories: [_JSON], _ totalCount: Int) -> Void),
+        failure: @escaping ((_ errorMessage: ServerBridgeErrorMessage) -> Void)) -> (DataRequest?) {
         
         let url: String = "\(serverAddress)/search/repositories"
         
@@ -38,7 +38,7 @@ extension ServerBridge {
             "q": "language:swift",
             "sort": "stars",
             "page": "\(page)",
-            "per_page": "\(repositoriesLimit)"
+            "per_page": "\(limit)"
         ]
         
         let request = Alamofire.request(
@@ -53,7 +53,8 @@ extension ServerBridge {
             switch response.result {
             case .success(let data):
                 guard let json = data as? _JSON,
-                    let repositories = json["items"] as? [_JSON] else {
+                    let repositories = json["items"] as? [_JSON],
+                    let totalCount = json["total_count"] as? Int else {
                         DispatchQueue.main.async {
                             let errorMessage = ServerBridgeErrorMessage.parseErrorMessage()
                             failure(errorMessage)
@@ -62,7 +63,7 @@ extension ServerBridge {
                 }
                 
                 DispatchQueue.main.async {
-                    completion(repositories)
+                    completion(repositories, totalCount)
                 }
             case .failure(let error):
                 print(error)
@@ -75,6 +76,8 @@ extension ServerBridge {
                 }
             }
         }
+        
+        return request
     }
     
 }

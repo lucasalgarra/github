@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 class RepositoryListViewModel {
     
@@ -14,13 +15,19 @@ class RepositoryListViewModel {
     // MARK: - Public properties
     //-----------------------------------------------------------------------------
     
-    var repositories = [RepositoryCellPresenter]()
+    private(set) var repositories = [RepositoryCellPresenter]()
+    private(set) var isLoadingMore = false
+    private(set) var hasMore = false
     
     //-----------------------------------------------------------------------------
     // MARK: - Private properties
     //-----------------------------------------------------------------------------
     
+    private var updateDataRequest: DataRequest?
+    private var loadMoreDataRequest: DataRequest?
+    
     private var page: Int = 1
+    private var limit: Int = 10
 }
 
 //-----------------------------------------------------------------------------
@@ -29,19 +36,43 @@ class RepositoryListViewModel {
 
 extension RepositoryListViewModel {
     
-    func update(completion: @escaping (() -> Void), failure: @escaping ((_ errorMessage: ServerBridgeErrorMessage) -> Void)) {
+    func update(completion: @escaping (() -> Void), failure: @escaping ((_ errorMessage: ServerBridgeErrorMessage?) -> Void)) {
         
-        page = 1
+        updateDataRequest?.cancel()
         
-        ServerBridge.repositories(withPage: page, completion: { repositories in
+        updateDataRequest = ServerBridge.repositories(withPage: 1, limit: limit, completion: { repositories, totalCount in
             self.repositories = self.parseRepositoryCellPresenter(with: repositories)
+            self.page = 1
+            self.hasMore = self.repositories.count < totalCount
+            self.updateDataRequest = nil
             completion()
         }, failure: { errorMessage in
+            self.updateDataRequest = nil
             failure(errorMessage)
         })
         
     }
     
+    func loadMore(completion: @escaping (() -> Void), failure: @escaping ((_ errorMessage: ServerBridgeErrorMessage?) -> Void)) {
+        
+        loadMoreDataRequest?.cancel()
+        
+        isLoadingMore = true
+        
+        loadMoreDataRequest = ServerBridge.repositories(withPage: page + 1, limit: limit, completion: { repositories, totalCount in
+            self.repositories += self.parseRepositoryCellPresenter(with: repositories)
+            self.page += 1
+            self.hasMore = self.repositories.count < totalCount
+            self.isLoadingMore = false
+            self.loadMoreDataRequest = nil
+            completion()
+        }, failure: { errorMessage in
+            self.isLoadingMore = false
+            self.loadMoreDataRequest = nil
+            failure(errorMessage)
+        })
+        
+    }
 }
 
 //-----------------------------------------------------------------------------

@@ -15,6 +15,7 @@ class RepositoryListViewController: UIViewController {
     //-----------------------------------------------------------------------------
     
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private var loadMoreView: LoadMoreView!
     
     //-----------------------------------------------------------------------------
     // MARK: - Private properties
@@ -54,6 +55,7 @@ extension RepositoryListViewController {
         setupView()
         setupNavigationBar()
         setupTableView()
+        setupLoadMoreView()
     }
     
     private func setupView() {
@@ -77,6 +79,10 @@ extension RepositoryListViewController {
         } else {
             tableView.backgroundView = refreshControl
         }
+    }
+    
+    private func setupLoadMoreView() {
+        loadMoreView.delegate = self
     }
 }
 
@@ -110,11 +116,12 @@ extension RepositoryListViewController {
         
         viewModel.update(completion: {
             self.didUpdate()
+            self.tableView.tableFooterView = self.viewModel.hasMore ? self.loadMoreView : nil
         }, failure: { errorMessage in
             
             let alertController = UIAlertController(
-                title: errorMessage.title,
-                message: errorMessage.message,
+                title: errorMessage?.title,
+                message: errorMessage?.message,
                 preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "AlertOkButton".localizable, style: .default, handler: nil)
@@ -126,6 +133,33 @@ extension RepositoryListViewController {
             
         })
         
+    }
+    
+    private func loadMore(isUserAction: Bool = false) {
+        viewModel.loadMore(completion: {
+            self.didUpdate()
+            self.tableView.tableFooterView = self.viewModel.hasMore ? self.loadMoreView : nil
+        }, failure: { errorMessage in
+            
+            self.loadMoreView.style = .needReload
+            
+            if isUserAction, let errorMessage = errorMessage {
+                let alertController = UIAlertController(
+                    title: errorMessage.title,
+                    message: errorMessage.message,
+                    preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "AlertOkButton".localizable, style: .default, handler: nil)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion: {
+                    self.didUpdate()
+                })
+            } else {
+                self.didUpdate()
+            }
+            
+        })
     }
     
     private func didUpdate() {
@@ -181,4 +215,43 @@ extension RepositoryListViewController: UITableViewDelegate {
         
     }
     
+}
+
+//-----------------------------------------------------------------------------
+// MARK: - ScrollViewDelegate
+//-----------------------------------------------------------------------------
+
+extension RepositoryListViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let lastCell = tableView.visibleCells.last,
+            let indexPath = tableView.indexPath(for: lastCell) {
+            
+            if indexPath.row < viewModel.repositories.count - 1 {
+                loadMoreView.style = .loading
+            }
+            
+            if !viewModel.isLoadingMore,
+                viewModel.hasMore,
+                loadMoreView.style == .loading,
+                tableView.tableFooterView == loadMoreView,
+                indexPath.row == viewModel.repositories.count - 1 {
+                loadMore()
+            }
+            
+            
+        }
+    }
+    
+}
+
+//-----------------------------------------------------------------------------
+// MARK: - LoadMoreViewDelegate
+//-----------------------------------------------------------------------------
+
+extension RepositoryListViewController: LoadMoreViewDelegate {
+    func loadMoreViewDidTapReload() {
+        loadMoreView.style = .loading
+        loadMore(isUserAction: true)
+    }
 }
