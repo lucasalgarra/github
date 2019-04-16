@@ -22,17 +22,17 @@ class RepositoryCell: UITableViewCell {
     //-----------------------------------------------------------------------------
     
     @IBOutlet private weak var cardView: UIView!
-    @IBOutlet private weak var repositoryNameLabel: UILabel!
-    @IBOutlet private weak var starCountLabel: UILabel!
+    @IBOutlet internal weak var repositoryNameLabel: UILabel!
+    @IBOutlet internal weak var starCountLabel: UILabel!
     @IBOutlet private weak var starIconImageView: UIImageView!
-    @IBOutlet private weak var authorNameLabel: UILabel!
+    @IBOutlet internal weak var authorNameLabel: UILabel!
     @IBOutlet private weak var authorPhotoImageView: UIImageView!
 
     //-----------------------------------------------------------------------------
     // MARK: - Public properties
     //-----------------------------------------------------------------------------
     
-    var presenter: RepositoryCellPresenter? {
+    public var presenter: RepositoryCellPresenter? {
         didSet {
             load()
         }

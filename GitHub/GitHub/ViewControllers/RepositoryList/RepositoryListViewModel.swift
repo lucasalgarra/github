@@ -26,7 +26,7 @@ class RepositoryListViewModel {
     private var updateDataRequest: DataRequest?
     private var loadMoreDataRequest: DataRequest?
     
-    private var page: Int = 1
+    internal var page: Int = 1
     private var limit: Int = 10
 }
 
@@ -81,7 +81,7 @@ extension RepositoryListViewModel {
 
 extension RepositoryListViewModel {
     
-    private func parseRepositoryCellPresenter(with repositories: [_JSON]) -> ([RepositoryCellPresenter]) {
+    internal func parseRepositoryCellPresenter(with repositories: [_JSON]) -> ([RepositoryCellPresenter]) {
         
         var presenters = [RepositoryCellPresenter]()
         
