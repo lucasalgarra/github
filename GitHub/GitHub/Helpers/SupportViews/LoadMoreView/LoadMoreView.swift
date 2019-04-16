@@ -43,12 +43,30 @@ class LoadMoreView: XIBView {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
+        setup()
         load()
     }
     
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setup()
         load()
+    }
+}
+
+//-----------------------------------------------------------------------------
+// MARK: - Private methods - Setup
+//-----------------------------------------------------------------------------
+
+extension LoadMoreView {
+    
+    private func setup() {
+        setupReloadButton()
+    }
+    
+    private func setupReloadButton() {
+        reloadButton.setTitleColor(.buttonDarkTitle, for: .normal)
+        reloadButton.setTitle("LoadMoreViewReloadButton".localizable, for: .normal)
     }
 }
 

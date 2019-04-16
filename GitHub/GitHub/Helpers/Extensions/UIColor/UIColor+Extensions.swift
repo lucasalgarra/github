@@ -30,4 +30,12 @@ extension UIColor {
         return UIColor.init(white: 0.4, alpha: 1)
     }
     
+    //-----------------------------------------------------------------------------
+    // MARK: - Button colors
+    //-----------------------------------------------------------------------------
+    
+    public static var buttonDarkTitle: UIColor {
+        return UIColor.init(white: 0.2, alpha: 1)
+    }
+    
 }

@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RepositoryListViewController" customModule="GitHub" customModuleProvider="target">
             <connections>
+                <outlet property="emptyMessageLabel" destination="JuO-IZ-Hhz" id="PlU-Tx-flO"/>
+                <outlet property="emptyReloadButton" destination="WvI-Qd-ZRJ" id="vmu-lL-dB3"/>
+                <outlet property="emptyTitleLabel" destination="8Gv-NZ-GDA" id="KQV-lL-lus"/>
+                <outlet property="emptyView" destination="BK3-yh-9aP" id="jHw-xs-9mf"/>
                 <outlet property="loadMoreView" destination="jXI-r9-bzS" id="rcL-i4-zpE"/>
                 <outlet property="tableView" destination="O4A-r8-q3B" id="Bbq-xk-wpB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -30,15 +34,68 @@
                         <outlet property="delegate" destination="-1" id="06k-CD-56H"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BK3-yh-9aP">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N3e-nE-i8G">
+                            <rect key="frame" x="80" y="359.5" width="254" height="99.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="empty title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Gv-NZ-GDA">
+                                    <rect key="frame" x="0.0" y="0.0" width="254" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="empty message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JuO-IZ-Hhz">
+                                    <rect key="frame" x="0.0" y="28.5" width="254" height="18"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WvI-Qd-ZRJ">
+                                    <rect key="frame" x="101" y="66.5" width="52" height="33"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <state key="normal" title="reload"/>
+                                    <connections>
+                                        <action selector="reloadTap:" destination="-1" eventType="touchUpInside" id="3hd-oD-KIF"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="JuO-IZ-Hhz" secondAttribute="trailing" id="041-yL-iUu"/>
+                                <constraint firstItem="8Gv-NZ-GDA" firstAttribute="leading" secondItem="N3e-nE-i8G" secondAttribute="leading" id="Gi4-7r-oeE"/>
+                                <constraint firstItem="WvI-Qd-ZRJ" firstAttribute="top" secondItem="JuO-IZ-Hhz" secondAttribute="bottom" constant="20" id="HGG-XY-OHt"/>
+                                <constraint firstAttribute="bottom" secondItem="WvI-Qd-ZRJ" secondAttribute="bottom" id="TAx-Dk-Vrj"/>
+                                <constraint firstItem="8Gv-NZ-GDA" firstAttribute="top" secondItem="N3e-nE-i8G" secondAttribute="top" id="V4y-ZT-H9d"/>
+                                <constraint firstItem="WvI-Qd-ZRJ" firstAttribute="centerX" secondItem="N3e-nE-i8G" secondAttribute="centerX" id="kYy-YG-w0L"/>
+                                <constraint firstAttribute="trailing" secondItem="8Gv-NZ-GDA" secondAttribute="trailing" id="n9L-Sg-Ct1"/>
+                                <constraint firstItem="JuO-IZ-Hhz" firstAttribute="top" secondItem="8Gv-NZ-GDA" secondAttribute="bottom" constant="8" id="tDO-8G-5iw"/>
+                                <constraint firstItem="JuO-IZ-Hhz" firstAttribute="leading" secondItem="N3e-nE-i8G" secondAttribute="leading" id="x3j-qv-1Uc"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="N3e-nE-i8G" firstAttribute="centerY" secondItem="BK3-yh-9aP" secondAttribute="centerY" id="Spf-De-v74"/>
+                        <constraint firstAttribute="trailing" secondItem="N3e-nE-i8G" secondAttribute="trailing" constant="80" id="xIk-Rk-0Cb"/>
+                        <constraint firstItem="N3e-nE-i8G" firstAttribute="leading" secondItem="BK3-yh-9aP" secondAttribute="leading" constant="80" id="yuB-aX-Lhf"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BK3-yh-9aP" secondAttribute="trailing" id="3t7-bs-aOH"/>
                 <constraint firstItem="O4A-r8-q3B" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Je6-Uy-YzM"/>
                 <constraint firstAttribute="bottom" secondItem="O4A-r8-q3B" secondAttribute="bottom" id="Os0-tg-YMp"/>
+                <constraint firstItem="BK3-yh-9aP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="fc6-p8-Mtj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O4A-r8-q3B" secondAttribute="trailing" id="mCw-zf-Iye"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="BK3-yh-9aP" secondAttribute="bottom" id="mqN-9N-Xvp"/>
                 <constraint firstItem="O4A-r8-q3B" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="opJ-6O-NK8"/>
+                <constraint firstItem="BK3-yh-9aP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vRA-GM-yBu"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="47.826086956521742" y="132.58928571428572"/>
         </view>
         <view contentMode="scaleToFill" id="jXI-r9-bzS" customClass="LoadMoreView" customModule="GitHub" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="415" height="60"/>
@@ -46,7 +103,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="9cZ-LX-0H4"/>
-            <point key="canvasLocation" x="712" y="398"/>
+            <point key="canvasLocation" x="46" y="788"/>
         </view>
     </objects>
 </document>

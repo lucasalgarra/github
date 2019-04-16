@@ -17,6 +17,11 @@ class RepositoryListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private var loadMoreView: LoadMoreView!
     
+    @IBOutlet private var emptyView: UIView!
+    @IBOutlet private var emptyTitleLabel: UILabel!
+    @IBOutlet private var emptyMessageLabel: UILabel!
+    @IBOutlet private var emptyReloadButton: UIButton!
+    
     //-----------------------------------------------------------------------------
     // MARK: - Private properties
     //-----------------------------------------------------------------------------
@@ -56,6 +61,7 @@ extension RepositoryListViewController {
         setupNavigationBar()
         setupTableView()
         setupLoadMoreView()
+        setupEmptyView()
     }
     
     private func setupView() {
@@ -83,6 +89,17 @@ extension RepositoryListViewController {
     
     private func setupLoadMoreView() {
         loadMoreView.delegate = self
+    }
+    
+    private func setupEmptyView() {
+        emptyView.backgroundColor = view.backgroundColor
+        emptyView.superview?.bringSubviewToFront(emptyView)
+        emptyView.isHidden = true
+        
+        emptyTitleLabel.text = "RepositoryListEmptyTitle".localizable
+        emptyMessageLabel.text = "RepositoryListEmptyMessage".localizable
+        emptyReloadButton.setTitle("RepositoryListEmptyReloadButton".localizable, for: .normal)
+        emptyReloadButton.setTitleColor(.buttonDarkTitle, for: .normal)
     }
 }
 
@@ -117,19 +134,30 @@ extension RepositoryListViewController {
         viewModel.update(completion: {
             self.didUpdate()
             self.tableView.tableFooterView = self.viewModel.hasMore ? self.loadMoreView : nil
+            self.emptyView.isHidden = self.viewModel.repositories.count > 0
         }, failure: { errorMessage in
             
-            let alertController = UIAlertController(
-                title: errorMessage?.title,
-                message: errorMessage?.message,
-                preferredStyle: .alert)
+            self.emptyView.isHidden = !self.viewModel.repositories.isEmpty
             
-            let okAction = UIAlertAction(title: "AlertOkButton".localizable, style: .default, handler: nil)
-            alertController.addAction(okAction)
-            
-            self.present(alertController, animated: true, completion: {
-                self.didUpdate()
-            })
+            if self.viewModel.repositories.isEmpty {
+                self.emptyTitleLabel.text = errorMessage?.title
+                self.emptyMessageLabel.text = errorMessage?.message
+            } else {
+                let alertController = UIAlertController(
+                    title: errorMessage?.title,
+                    message: errorMessage?.message,
+                    preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "AlertOkButton".localizable, style: .default, handler: nil)
+                alertController.addAction(okAction)
+                
+                DispatchQueue.main.async {
+                    self.present(alertController, animated: true, completion: {
+                        self.didUpdate()
+                    })
+                }
+                
+            }
             
         })
         
@@ -169,6 +197,19 @@ extension RepositoryListViewController {
         
         tableView.reloadData()
     }
+}
+
+//-----------------------------------------------------------------------------
+// MARK: - Private methods - Actions
+//-----------------------------------------------------------------------------
+
+extension RepositoryListViewController {
+    
+    @IBAction private func reloadTap(_ sender: Any) {
+        setupEmptyView()
+        update()
+    }
+    
 }
 
 //-----------------------------------------------------------------------------

@@ -29,10 +29,11 @@
                         <constraint firstAttribute="width" constant="20" id="4hC-44-JZZ"/>
                     </constraints>
                 </activityIndicatorView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tf0-uS-OmD">
-                    <rect key="frame" x="193.5" y="16" width="28" height="28"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tf0-uS-OmD">
+                    <rect key="frame" x="179" y="13.5" width="57" height="33"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <state key="normal" image="ReloadButton"/>
+                    <state key="normal" title="Reload"/>
                     <connections>
                         <action selector="reloadTap:" destination="-1" eventType="touchUpInside" id="nc8-EJ-WZt"/>
                     </connections>
@@ -51,7 +52,4 @@
             <point key="canvasLocation" x="712" y="398"/>
         </view>
     </objects>
-    <resources>
-        <image name="ReloadButton" width="28" height="28"/>
-    </resources>
 </document>

@@ -11,6 +11,15 @@
 //-----------------------------------------------------------------------------
 
 "RepositoryListTitle" = "Repositórios swift";
+"RepositoryListEmptyTitle" = "Nenhum repositório encontrado";
+"RepositoryListEmptyMessage" = "No momento não há repositórios disponíveis, por favor tente mais tarde.";
+"RepositoryListEmptyReloadButton" = "Tentar novamente";
+
+//-----------------------------------------------------------------------------
+// MARK: - LoadMoreView
+//-----------------------------------------------------------------------------
+
+"LoadMoreViewReloadButton" = "Carregar mais";
 
 //-----------------------------------------------------------------------------
 // MARK: - ServerBridgeErrorMessage
